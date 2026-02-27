@@ -36,8 +36,8 @@ local GetPlayerServerId = GetPlayerServerId
 local PlayerId = PlayerId
 local GetHashKey = GetHashKey
 local CreateObject = CreateObject
-local madvr_floor = math.floor
-local madvr_max = math.max
+local math_floor = math.floor
+local math_max = math.max
 
 local function StopWandTrail(playerPed)
     local handle = wandParticles[playerPed]
@@ -78,9 +78,9 @@ local function GetAnimationTimings()
     local cleanupDelay = anim.cleanupDelay or 800
     local duration = anim.duration or 3000
 
-    local scaledProjectile = madvr_floor(projectileDelay / speedMult)
-    local scaledCleanup = madvr_floor(madvr_max(0, cleanupDelay) / speedMult)
-    local scaledDuration = madvr_floor(duration / speedMult)
+    local scaledProjectile = math_floor(projectileDelay / speedMult)
+    local scaledCleanup = math_floor(math_max(0, cleanupDelay) / speedMult)
+    local scaledDuration = math_floor(duration / speedMult)
 
     if scaledDuration < scaledProjectile then
         scaledDuration = scaledProjectile
@@ -361,7 +361,7 @@ RegisterNetEvent('dvr_waterpillar:preparePillar', function(level)
     local projectileDelay, cleanupDelay = GetAnimationTimings()
 
     CreateThread(function()
-        Wait(madvr_max(0, projectileDelay))
+        Wait(math_max(0, projectileDelay))
         local handBone<const> = GetPedBoneIndex(casterPed, 28422)
         local startCoords<const> = GetWorldPositionOfEntityBone(casterPed, handBone)
 
@@ -384,7 +384,7 @@ RegisterNetEvent('dvr_waterpillar:preparePillar', function(level)
 
         TriggerServerEvent('dvr_waterpillar:broadcastProjectile', finalTargetCoords, level or 0)
 
-        Wait(madvr_max(0, cleanupDelay))
+        Wait(math_max(0, cleanupDelay))
         RemoveWandParticles(casterPed)
     end)
 end)

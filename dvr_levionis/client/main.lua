@@ -29,10 +29,10 @@ local StopParticleFxLooped = StopParticleFxLooped
 local SetParticleFxLoopedColour = SetParticleFxLoopedColour
 local SetParticleFxLoopedAlpha = SetParticleFxLoopedAlpha
 local DrawLightWithRange = DrawLightWithRange
-local madvr_sin = math.sin
-local madvr_pi = math.pi
-local madvr_max = math.max
-local madvr_sqrt = math.sqrt
+local math_sin = math.sin
+local math_pi = math.pi
+local math_max = math.max
+local math_sqrt = math.sqrt
 local vector3 = vector3
 
 local function ClampToRange(origin, point, range)
@@ -50,7 +50,7 @@ local function ClampToRange(origin, point, range)
         return point, false
     end
 
-    local scale = range / madvr_sqrt(distSq)
+    local scale = range / math_sqrt(distSq)
     return vector3(origin.x + dx * scale, origin.y + dy * scale, origin.z + dz * scale), true
 end
 
@@ -76,7 +76,7 @@ local function PulseLight(coords, settings, startTime)
     local now <const> = GetGameTimer()
     local period <const> = settings.period or 1800
     local phase = ((now - (startTime or now)) % period) / period
-    local wave <const> = 0.6 + 0.4 * madvr_sin(phase * 2.0 * madvr_pi)
+    local wave <const> = 0.6 + 0.4 * math_sin(phase * 2.0 * math_pi)
 
     DrawLightWithRange(
         coords.x, coords.y, coords.z,
@@ -233,7 +233,7 @@ local function ConfigureObjectLevitation(levData)
     local levCfg = Config.Levitation or {}
     local level = tonumber(levData.level) or 0
     local baseRange = levCfg.controlRange or 15.0
-    local maxRange = levCfg.maxControlRange or madvr_max(baseRange, 35.0)
+    local maxRange = levCfg.maxControlRange or math_max(baseRange, 35.0)
     local baseDuration = levCfg.duration or 5000
     local riseTime = levCfg.riseTime or 0
 
@@ -256,7 +256,7 @@ local function ConfigureObjectLevitation(levData)
             desiredDuration = needed
         end
     end
-    levData.endTime = madvr_max(levData.endTime or desiredDuration, desiredDuration)
+    levData.endTime = math_max(levData.endTime or desiredDuration, desiredDuration)
 end
 
 RegisterNetEvent('dvr_levionis:startLevitation', function(targetServerId, casterServerId, duration, height, targetCoords, level)

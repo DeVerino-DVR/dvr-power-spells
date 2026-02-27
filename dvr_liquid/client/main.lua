@@ -1,7 +1,7 @@
 ---@diagnostic disable: param-type-mismatch, missing-parameter, redundant-parameter, undefined-global
 local vec = vec or vector3
 local cache = cache
-local madvr_sqrt = math.sqrt
+local math_sqrt = math.sqrt
 local PlayerId = PlayerId
 local GetPlayerFromServerId = GetPlayerFromServerId
 
@@ -35,7 +35,7 @@ local function handleApplyEvent(sourceId, enabled, _, _)
 end
 
 local function normalizeDirection(x, y, z)
-    local magnitude = madvr_sqrt(x * x + y * y + z * z)
+    local magnitude = math_sqrt(x * x + y * y + z * z)
     if magnitude ~= 0.0 then
         local inv = 1.0 / magnitude
         return vector3(x * inv, y * inv, z * inv)

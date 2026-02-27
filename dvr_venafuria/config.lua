@@ -40,7 +40,7 @@ Config.Effects = {
     },
     particle = {
         dict = 'scr_bike_adversary',
-        name = 'scr_adversary_gunsmidvr_weap_smoke',
+        name = 'scr_adversary_gunsmith_weap_smoke',
         alpha = 1.0,
         offset = { x = 0.4, y = 0.0, zstart = 0.0, zend = 0.05 },
         rot = { x = 0.0, y = 0.0, z = 0.0 }

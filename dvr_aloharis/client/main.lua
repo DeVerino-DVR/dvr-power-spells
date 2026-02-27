@@ -21,10 +21,10 @@ local AnimpostfxPlay = AnimpostfxPlay
 local AnimpostfxStop = AnimpostfxStop
 local Wait = Wait
 local string_lower = string.lower
-local madvr_sin = math.sin
-local madvr_random = math.random
-local madvr_floor = math.floor
-local madvr_max = math.max
+local math_sin = math.sin
+local math_random = math.random
+local math_floor = math.floor
+local math_max = math.max
 local vector3 = vector3
 local MAX_SPELL_LEVEL <const> = 5
 
@@ -154,9 +154,9 @@ local function GetAnimationTimings()
     local markerDelay = anim.markerDelay or 600
     local cleanupDelay = anim.cleanupDelay or 600
 
-    local scaledDuration = madvr_floor(duration / speedMult)
-    local scaledMarker = madvr_floor(markerDelay / speedMult)
-    local scaledCleanup = madvr_floor(madvr_max(0, cleanupDelay) / speedMult)
+    local scaledDuration = math_floor(duration / speedMult)
+    local scaledMarker = math_floor(markerDelay / speedMult)
+    local scaledCleanup = math_floor(math_max(0, cleanupDelay) / speedMult)
 
     if scaledDuration < scaledMarker then
         scaledDuration = scaledMarker
@@ -201,12 +201,12 @@ local function playMisfireEffect(coords, profile)
         UseParticleFxAssetNextCall('core')
         StartParticleFxNonLoopedAtCoord(
             'ent_sht_steam',
-            coords.x + ((madvr_random() - 0.5) * 0.5),
-            coords.y + ((madvr_random() - 0.5) * 0.5),
-            coords.z + 1.0 + ((madvr_random() - 0.5) * 0.2),
+            coords.x + ((math_random() - 0.5) * 0.5),
+            coords.y + ((math_random() - 0.5) * 0.5),
+            coords.z + 1.0 + ((math_random() - 0.5) * 0.2),
             0.0,
             0.0,
-            madvr_random(0, 360),
+            math_random(0, 360),
             0.4 * scale,
             false,
             false,
@@ -384,7 +384,7 @@ RegisterNetEvent('dvr_aloharis:onCast', function(spellLevel)
 
     local profile = BuildProfile(spellLevel)
 
-    if madvr_random() < profile.failChance then
+    if math_random() < profile.failChance then
         stopPrecastEffect(false)
         if lastTargetedDoor and lastTargetedDoor.coords then
             playMisfireEffect(lastTargetedDoor.coords, profile)
@@ -510,8 +510,8 @@ local function playUnlockEffect(data, profile)
                     UseParticleFxAssetNextCall(burst.sparks.asset)
                     StartParticleFxNonLoopedAtCoord(
                         burst.sparks.name,
-                        x + ((madvr_sin(GetGameTimer() / 45 + i) * 0.2) or 0.0),
-                        y + ((madvr_sin(GetGameTimer() / 60 + i) * 0.2) or 0.0),
+                        x + ((math_sin(GetGameTimer() / 45 + i) * 0.2) or 0.0),
+                        y + ((math_sin(GetGameTimer() / 60 + i) * 0.2) or 0.0),
                         z + (burst.sparks.zOffset or 1.2),
                         0.0,
                         0.0,
@@ -594,7 +594,7 @@ local function playUnlockEffect(data, profile)
                 local startTime = GetGameTimer()
                 local duration = outline.duration or 2000
                 while DoesEntityExist(entityHandle) and GetGameTimer() - startTime < duration do
-                    local pulse = math.floor(140 + (madvr_sin(GetGameTimer() / 120) * 80))
+                    local pulse = math.floor(140 + (math_sin(GetGameTimer() / 120) * 80))
                     SetEntityDrawOutlineColor(color.r or 160, color.g or 220, color.b or 255, pulse)
                     Wait(0)
                 end

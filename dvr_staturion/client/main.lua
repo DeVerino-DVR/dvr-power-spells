@@ -3,8 +3,8 @@ local petrificusRayProps = {}
 local wandParticles = {}
 local petrifiedEntities = {}
 local petrifiedRotations = {}
-local madvr_floor = math.floor
-local madvr_max = math.max
+local math_floor = math.floor
+local math_max = math.max
 
 local function ResolveSpellLevel(spellId, sourceId, providedLevel)
     local numeric = tonumber(providedLevel)
@@ -74,9 +74,9 @@ local function GetAnimationTimings()
     local cleanupDelay = anim.cleanupDelay or 800
     local duration = anim.duration or 2200
 
-    local scaledProjectile = madvr_floor(projectileDelay / speedMult)
-    local scaledCleanup = madvr_floor(madvr_max(0, cleanupDelay) / speedMult)
-    local scaledDuration = madvr_floor(duration / speedMult)
+    local scaledProjectile = math_floor(projectileDelay / speedMult)
+    local scaledCleanup = math_floor(math_max(0, cleanupDelay) / speedMult)
+    local scaledDuration = math_floor(duration / speedMult)
 
     if scaledDuration < scaledProjectile then
         scaledDuration = scaledProjectile
@@ -191,7 +191,7 @@ local function CreatePetrificusProjectile(startCoords, targetCoords, sourceServe
     
     local speedMult = GetSpeedMultiplier()
     local projectileDuration = Config.Projectile.duration or (distance / Config.Projectile.speed) * 1000.0
-    projectileDuration = madvr_floor(projectileDuration / speedMult)
+    projectileDuration = math_floor(projectileDuration / speedMult)
     if projectileDuration < 150 then
         projectileDuration = 150
     end
@@ -278,7 +278,7 @@ RegisterNetEvent('dvr_staturion:prepareProjectile', function()
     local projectileDelay, cleanupDelay = GetAnimationTimings()
     
     CreateThread(function()
-        Wait(madvr_max(0, projectileDelay))
+        Wait(math_max(0, projectileDelay))
         local handBone = GetPedBoneIndex(casterPed, Config.Projectile.handBone)
         local startCoords = GetWorldPositionOfEntityBone(casterPed, handBone)
         
@@ -305,7 +305,7 @@ RegisterNetEvent('dvr_staturion:prepareProjectile', function()
         
         TriggerServerEvent('dvr_staturion:broadcastProjectile', finalTargetCoords, targetEntity)
         
-        Wait(madvr_max(0, cleanupDelay))
+        Wait(math_max(0, cleanupDelay))
         RemoveWandParticles(casterPed)
     end)
 end)

@@ -12,7 +12,7 @@ local NetworkGetPlayerIndexFromPed = NetworkGetPlayerIndexFromPed
 local GetGameplayCamCoord = GetGameplayCamCoord
 local GetGameplayCamRot = GetGameplayCamRot
 local GetPlayerFromServerId = GetPlayerFromServerId
-local madvr_random = math.random
+local math_random = math.random
 
 local activeEffect = nil
 local hiddenPlayers = {}
@@ -187,7 +187,7 @@ local function ApplyHiddenis(profileOrDuration, alpha)
         elseif profile.broadcast == 'flicker' then
             CreateThread(function()
                 while activeEffect == data do
-                    local shouldHide = madvr_random() < (profile.flickerChance or 0.5)
+                    local shouldHide = math_random() < (profile.flickerChance or 0.5)
                     TriggerServerEvent('dvr_hiddenis:setHidden', shouldHide)
                     Wait(profile.flickerInterval > 0 and profile.flickerInterval or 1500)
                 end

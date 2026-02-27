@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-global, trailing-space
-local madvr_max = math.max
+local math_max = math.max
 
 local function RegisterLevionisModule()
     local animCfg = Config.Animation or {}
@@ -66,7 +66,7 @@ local function RegisterLevionisModule()
             local desiredDuration = levCfg.duration or 5000
             if controlDuration then
                 local riseBuffer = (levCfg.riseTime or 0) + 500
-                desiredDuration = madvr_max(desiredDuration, controlDuration + riseBuffer)
+                desiredDuration = math_max(desiredDuration, controlDuration + riseBuffer)
             end
             
             local targetCoords = raycast.hitCoords

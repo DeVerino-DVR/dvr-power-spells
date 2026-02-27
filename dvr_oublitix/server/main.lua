@@ -5,7 +5,7 @@ local GetPlayerPed = GetPlayerPed
 local Wait = Wait
 local CreateThread = CreateThread
 local SetTimeout = SetTimeout
-local madvr_floor = math.floor
+local math_floor = math.floor
 local os_time = os.time
 
 -- Table to store position history for each player
@@ -25,7 +25,7 @@ local function GetCasterLevel(sourceId)
     end)
 
     if ok and hasSpell then
-        return madvr_floor(tonumber(level) or 0)
+        return math_floor(tonumber(level) or 0)
     end
 
     return 0
@@ -209,7 +209,7 @@ local function RegisterOublitixModule()
                 return false
             end
 
-            local spellLevel = level ~= nil and madvr_floor(tonumber(level) or 0) or GetCasterLevel(source)
+            local spellLevel = level ~= nil and math_floor(tonumber(level) or 0) or GetCasterLevel(source)
             if spellLevel < 1 then spellLevel = 1 end
             if spellLevel > 5 then spellLevel = 5 end
 

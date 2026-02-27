@@ -24,14 +24,14 @@ local PlayerId = PlayerId
 local GetGameTimer = GetGameTimer
 local vector3 = vector3
 
-local madvr_pi = math.pi
-local madvr_sin = math.sin
-local madvr_cos = math.cos
+local math_pi = math.pi
+local math_sin = math.sin
+local math_cos = math.cos
 
 local function RotationToDirection(rotation)
-    local radX = rotation.x * (madvr_pi / 180.0)
-    local radZ = rotation.z * (madvr_pi / 180.0)
-    return vector3(-madvr_sin(radZ) * math.abs(madvr_cos(radX)), madvr_cos(radZ) * math.abs(madvr_cos(radX)), madvr_sin(radX))
+    local radX = rotation.x * (math_pi / 180.0)
+    local radZ = rotation.z * (math_pi / 180.0)
+    return vector3(-math_sin(radZ) * math.abs(math_cos(radX)), math_cos(radZ) * math.abs(math_cos(radX)), math_sin(radX))
 end
 
 local function StopWandParticles(playerPed)
@@ -148,9 +148,9 @@ local function SpawnSmokeScreenAt(coords)
     for zi = 1, #zOffsets do
         local zOff = zOffsets[zi] or 0.15
         for i = 1, points do
-            local angle = (i / points) * (madvr_pi * 2.0)
-            local x = coords.x + (madvr_cos(angle) * radius)
-            local y = coords.y + (madvr_sin(angle) * radius)
+            local angle = (i / points) * (math_pi * 2.0)
+            local x = coords.x + (math_cos(angle) * radius)
+            local y = coords.y + (math_sin(angle) * radius)
 
             UseParticleFxAssetNextCall(cfg.dict)
             local fx = StartParticleFxLoopedAtCoord(cfg.particle, x, y, coords.z + zOff, 0.0, 0.0, 0.0, ringScale, false, false, false, false)

@@ -33,8 +33,8 @@ local GetCurrentResourceName = GetCurrentResourceName
 local pairs = pairs
 local type = type
 local tonumber = tonumber
-local madvr_max = math.max
-local madvr_floor = math.floor
+local math_max = math.max
+local math_floor = math.floor
 
 local blackPlayers = {}
 local savedMakeup = {}
@@ -150,7 +150,7 @@ local function EnsureMinChannel(colour, minChannel)
     local g = tonumber(colour.g) or tonumber(colour[2]) or 0
     local b = tonumber(colour.b) or tonumber(colour[3]) or 0
 
-    local maxVal = madvr_max(r, g, b)
+    local maxVal = math_max(r, g, b)
     if maxVal < 1 then
         return { r = minVal, g = minVal, b = minVal }
     end
@@ -160,9 +160,9 @@ local function EnsureMinChannel(colour, minChannel)
 
     local factor = minVal / maxVal
     return {
-        r = madvr_floor(r * factor),
-        g = madvr_floor(g * factor),
-        b = madvr_floor(b * factor)
+        r = math_floor(r * factor),
+        g = math_floor(g * factor),
+        b = math_floor(b * factor)
     }
 end
 
@@ -190,7 +190,7 @@ local function GetMakeupRgb(colourIndex)
         return nil
     end
 
-    idx = madvr_floor(idx)
+    idx = math_floor(idx)
     return MAKEUP_RGB_BY_INDEX[idx]
 end
 

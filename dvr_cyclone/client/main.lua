@@ -55,13 +55,13 @@ local GetEntityType = GetEntityType
 local ActivatePhysics = ActivatePhysics
 local SetEntityDynamic = SetEntityDynamic
 local FreezeEntityPosition = FreezeEntityPosition
-local madvr_floor = math.floor
-local madvr_min = math.min
-local madvr_max = math.max
-local madvr_sqrt = math.sqrt
-local madvr_abs = math.abs
-local madvr_random = math.random
-local madvr_pi = math.pi
+local math_floor = math.floor
+local math_min = math.min
+local math_max = math.max
+local math_sqrt = math.sqrt
+local math_abs = math.abs
+local math_random = math.random
+local math_pi = math.pi
 
 local wandParticles = {}
 local allParticles = {}
@@ -223,15 +223,15 @@ end
 function TornadoParticle:OnUpdate(gameTime, deltaTime)
     self._centerPos = self.Parent._position + self._offset
     
-    if madvr_abs(self._angle) > madvr_pi * 2.0 then
+    if math_abs(self._angle) > math_pi * 2.0 then
         self._angle = 0.0
     end
     
     self._angle = self._angle - self._settings.ROTATION_SPEED * self._layerMask * deltaTime
     
     local vortex = self.Parent._position
-    local nx = madvr_min(self._offset.z, madvr_max(-self._offset.z, self._offset.x + madvr_random(-10, 10) / 50))
-    local ny = madvr_min(self._offset.z, madvr_max(-self._offset.z, self._offset.y + madvr_random(-10, 10) / 50))
+    local nx = math_min(self._offset.z, math_max(-self._offset.z, self._offset.x + math_random(-10, 10) / 50))
+    local ny = math_min(self._offset.z, math_max(-self._offset.z, self._offset.y + math_random(-10, 10) / 50))
     self._offset = vector3(nx, ny, self._offset.z)
     
     local offset = self._offset
@@ -295,7 +295,7 @@ function TornadoVortex:Build()
     local maxLayers = settings.MAX_PARTICLE_LAYERS
     local particleAsset = 'core'
     local particleName = 'ent_amb_smoke_foundry'
-    local multiplier = 360 / madvr_max(particleCount, 1)
+    local multiplier = 360 / math_max(particleCount, 1)
     local baseParticleSize = 2.0  
 
     for i = 0, maxLayers - 1 do
@@ -459,7 +459,7 @@ function TornadoVortex:UpdatePulledEntities(gameTime, maxDistanceDelta)
 
                         local dirToCenter = dist > 0.1 and (toCenter / dist) or vector3(0, 0, 0)
                         
-                        local distRatio = madvr_min(dist / radius, 2.0)
+                        local distRatio = math_min(dist / radius, 2.0)
                         local pullStrength = horizontalForce * distRatio * 1.5
                         
                         if dist > radius then
@@ -548,7 +548,7 @@ end)
 local lastCastLevel = 1
 
 local function clampLevel(level)
-    local numeric = madvr_floor(tonumber(level) or 1)
+    local numeric = math_floor(tonumber(level) or 1)
     if numeric < 1 then return 1 end
     if numeric > 5 then return 5 end
     return numeric

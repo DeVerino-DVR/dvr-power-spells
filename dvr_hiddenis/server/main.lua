@@ -1,6 +1,6 @@
 ---@diagnostic disable: undefined-global, trailing-space, unused-local
 local hiddenPlayers = {}
-local madvr_floor = math.floor
+local math_floor = math.floor
 
 local function Notify(sourceId, payload)
     if not payload then
@@ -10,7 +10,7 @@ local function Notify(sourceId, payload)
 end
 
 local function clampLevel(level)
-    local numeric = madvr_floor(tonumber(level) or 1)
+    local numeric = math_floor(tonumber(level) or 1)
     if numeric < 1 then
         return 1
     end

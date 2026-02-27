@@ -23,8 +23,8 @@ local GetHashKey = GetHashKey
 local SetCurrentPedWeapon = SetCurrentPedWeapon
 local SetTimeout = SetTimeout
 local CreateThread = CreateThread
-local madvr_max = math.max
-local madvr_floor = math.floor
+local math_max = math.max
+local math_floor = math.floor
 
 local function getAnimationDuration()
     local anim = Config.Spell and Config.Spell.animation or {}
@@ -35,13 +35,13 @@ local function getAnimationDuration()
     end
     local buffer = anim.disarmBuffer or 120
     local extraDelay = anim.disarmExtraDelay or 0
-    return madvr_max(0, madvr_floor((base / speed) + buffer + extraDelay))
+    return math_max(0, math_floor((base / speed) + buffer + extraDelay))
 end
 
 local function getProjectileSpeed()
     local projectile = Config.Effect and Config.Effect.projectile or {}
     local speed = projectile.speed or 40.0
-    return madvr_max(0.01, speed)
+    return math_max(0.01, speed)
 end
 
 local function getProjectileTravelTime(distance)
@@ -220,7 +220,7 @@ RegisterNetEvent('dvr_desarmis:onCast', function(targetId)
     local effect = Config.Effect
     local travelTime = getProjectileTravelTime(distance)
     local animDelay = getAnimationDuration()
-    local disarmDelay = madvr_max(travelTime, animDelay)
+    local disarmDelay = math_max(travelTime, animDelay)
 
     SetTimeout(math.floor(disarmDelay), function()
         TriggerServerEvent('dvr_desarmis:disarmTarget', targetId)

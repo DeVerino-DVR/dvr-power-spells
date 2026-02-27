@@ -48,8 +48,8 @@ local DisableControlAction = DisableControlAction
 local DisablePlayerFiring = DisablePlayerFiring
 local PlayerId = PlayerId
 local PlayerPedId = PlayerPedId
-local madvr_sin = math.sin
-local madvr_pi = math.pi
+local math_sin = math.sin
+local math_pi = math.pi
 local SPELL_ID <const> = 'prothea'
 
 local activeShields = {}
@@ -452,7 +452,7 @@ CreateThread(function()
                     local coords <const> = GetEntityCoords(data.ped) + vector3(0.0, 0.0, 1.0)
                     local period <const> = pulseCfg.period or 1600
                     local phase = ((now - (data.pulseStart or now)) % period) / period
-                    local wave <const> = 0.5 + 0.5 * madvr_sin(phase * 2.0 * madvr_pi)
+                    local wave <const> = 0.5 + 0.5 * math_sin(phase * 2.0 * math_pi)
                     DrawLightWithRange(
                         coords.x, coords.y, coords.z,
                         pulseCfg.color.r,

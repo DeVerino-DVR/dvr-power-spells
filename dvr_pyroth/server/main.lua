@@ -132,7 +132,7 @@ RegisterNetEvent('dvr_pyroth:applyFlameDamage', function(flameCoords, level, dur
     end
     
     -- Créer la zone de flammes pour les dégâts continus
-    local zoneId = 'pyrodvr_' .. _source .. '_' .. now
+    local zoneId = 'pyroth_' .. _source .. '_' .. now
     activeFlameZones[zoneId] = {
         coords = coords,
         radius = settings.radius,

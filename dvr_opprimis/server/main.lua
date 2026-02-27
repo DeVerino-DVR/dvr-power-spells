@@ -6,7 +6,7 @@ local GetPlayerName = GetPlayerName
 local Wait = Wait
 local CreateThread = CreateThread
 local SetTimeout = SetTimeout
-local madvr_floor = math.floor
+local math_floor = math.floor
 
 local handcuffedPlayersTimeouts = {}
 
@@ -104,7 +104,7 @@ local function registerModule()
                 return false
             end
 
-            local spellLevelNum = spellLevel ~= nil and madvr_floor(tonumber(spellLevel) or 0) or 0
+            local spellLevelNum = spellLevel ~= nil and math_floor(tonumber(spellLevel) or 0) or 0
             if spellLevelNum < 0 then spellLevelNum = 0 end
             if spellLevelNum > 5 then spellLevelNum = 5 end
 

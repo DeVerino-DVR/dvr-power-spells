@@ -44,8 +44,8 @@ local SetEntityAsMissionEntity = SetEntityAsMissionEntity
 local SetEntityCompletelyDisableCollision = SetEntityCompletelyDisableCollision
 local SetEntityVisible = SetEntityVisible
 local ApplyPedDamagePack = ApplyPedDamagePack
-local madvr_sin = math.sin
-local madvr_pi = math.pi
+local math_sin = math.sin
+local math_pi = math.pi
 local vector3 = vector3
 
 local activeLevitations = {}
@@ -65,7 +65,7 @@ local function PulseLight(coords, settings, startTime)
     local now <const> = GetGameTimer()
     local period <const> = settings.period or 1800
     local phase = ((now - (startTime or now)) % period) / period
-    local wave <const> = 0.6 + 0.4 * madvr_sin(phase * 2.0 * madvr_pi)
+    local wave <const> = 0.6 + 0.4 * math_sin(phase * 2.0 * math_pi)
 
     DrawLightWithRange(
         coords.x, coords.y, coords.z,

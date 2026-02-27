@@ -175,7 +175,7 @@ local function PlayImpactSound(coords)
 
     -- REPLACE WITH YOUR SOUND SYSTEM
     -- exports['lo_audio']:playSound({
-    -- id = ('dvr_pyrodvr_impact_%s'):format(GetGameTimer()),
+    -- id = ('dvr_pyroth_impact_%s'):format(GetGameTimer()),
     -- url = soundCfg.url,
     -- volume = soundCfg.volume or 0.8,
     -- loop = false,
@@ -305,7 +305,7 @@ local function SpawnFlameZone(coords, level, sourceServerId)
         flames[#flames + 1] = smoke
     end
 
-    local zoneId = 'pyrodvr_' .. GetGameTimer()
+    local zoneId = 'pyroth_' .. GetGameTimer()
     activeFlameZones[zoneId] = {
         flames = flames,
         coords = coords,

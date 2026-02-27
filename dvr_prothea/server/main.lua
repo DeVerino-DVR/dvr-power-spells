@@ -2,7 +2,7 @@
 local playerShields = {}
 local playerGodmode = {}
 local playerCooldowns = {}
-local madvr_ceil = math.ceil
+local math_ceil = math.ceil
 local NetworkGetEntityFromNetworkId = NetworkGetEntityFromNetworkId
 local NetworkGetEntityOwner = NetworkGetEntityOwner
 local DoesEntityExist = DoesEntityExist
@@ -199,7 +199,7 @@ RegisterNetEvent('dvr_prothea:castShield', function()
     local shieldCfg <const> = Config and Config.Shield
     local levelSettings <const> = GetShieldSettingsForLevel(spellLevel)
     local durationMs <const> = levelSettings.duration or (shieldCfg and shieldCfg.duration) or 1000
-    local durationSeconds <const> = math.max(1, madvr_ceil(durationMs / 1000))
+    local durationSeconds <const> = math.max(1, math_ceil(durationMs / 1000))
     local blockPercentage <const> = levelSettings.blockDamage or (shieldCfg and shieldCfg.blockDamage) or 0.8
     local useProps <const> = levelSettings.props ~= false and durationMs > 0
     local applyGodmode <const> = levelSettings.godmode == true and durationMs > 0
