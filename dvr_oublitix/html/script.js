@@ -19,10 +19,10 @@ window.addEventListener('message', (event) => {
     if (!data || !data.action) return;
 
     if (data.action === 'showOublitixOverlay') {
-        console.log('[th_oublitix][NUI] overlay ->', data.visible);
+        console.log('[dvr_oublitix][NUI] overlay ->', data.visible);
         toggleOublitixOverlay(data.visible);
     } else if (data.action === 'showOublitixText') {
-        console.log('[th_oublitix][NUI] text ->', data.visible, 'msg:', data.message);
+        console.log('[dvr_oublitix][NUI] text ->', data.visible, 'msg:', data.message);
         toggleOublitixText(data.visible, data.message);
     }
 });

@@ -1,33 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find . -name \"fxmanifest.lua\" -exec sed -i \"s|''@ox_lib/init.lua'',|-- ''@ox_lib/init.lua'', -- REQUIRED: Install ox_lib \\(https://github.com/overextended/ox_lib\\)|g\" {} +)",
-      "Bash(find . -name \"fxmanifest.lua\" -exec sed -i \"s|''@oxmysql/lib/MySQL.lua'',|-- ''@oxmysql/lib/MySQL.lua'', -- REQUIRED: Install oxmysql \\(https://github.com/overextended/oxmysql\\)|g\" {} +)",
-      "Bash(find . -name \"fxmanifest.lua\" -exec sed -i \"s|''@es_extended/imports.lua'',|-- ''@es_extended/imports.lua'', -- REQUIRED: Install es_extended or your framework|g\" {} +)",
-      "Bash(find . -name \"*.lua\" -exec sed -i 's|https://files\\\\.fantasticrp\\\\.fr/d\\\\.php?f=[a-zA-Z0-9]*\\\\.mp3|YOUR_SOUND_URL_HERE|g' {} +)",
-      "Bash(find . -name \"*.lua\" -exec sed -i 's|https://files\\\\.fantasticrp\\\\.fr/[a-zA-Z0-9\\\\-]*\\\\.mp4|YOUR_VIDEO_URL_HERE|g' {} +)",
-      "Bash(find . -name \"*.lua\" -exec sed -i 's|https://files\\\\.fantasticrp\\\\.fr/d\\\\.php?f=[a-zA-Z0-9]*\\\\.mp4|YOUR_VIDEO_URL_HERE|g' {} +)",
-      "Bash(node --version)",
-      "Bash(gh auth status)",
-      "Bash(where gh)",
-      "Bash(cmd.exe /c \"where gh\")",
-      "Bash(git --version)",
-      "Bash(winget install --id GitHub.cli -e --accept-source-agreements --accept-package-agreements)",
-      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\")",
-      "Bash(git init)",
-      "Bash(git add -A)",
-      "Bash(git commit -m \"Initial release - dvr_power spell system for FiveM\")",
-      "Bash(git commit -m \"Initial release - 58 spell modules for dvr_power\")",
-      "Bash(# Final verification: check for any remaining private/sensitive data echo \"\"=== Checking for remaining fantasticrp URLs ===\"\" && grep -rl \"\"fantasticrp\"\" --include=\"\"*.lua\"\" \"\"c:/Users/dvr_/Desktop/[modules]/\"\" \"\"c:/Users/dvr_/Desktop/dvr_power/\"\" && echo \"\"\\(found\\)\"\" || echo \"\"\\(none - OK\\)\"\" echo -e \"\"\\\\n=== Checking for remaining lo_audio \\(uncommented\\) ===\"\" && grep -rn \"\"exports\\\\[''lo_audio''\\\\]\"\" --include=\"\"*.lua\"\" \"\"c:/Users/dvr_/Desktop/[modules]/\"\" \"\"c:/Users/dvr_/Desktop/dvr_power/\"\")",
-      "Bash(gh repo create th-power --public --source=. --remote=origin --description \"Spell system for FiveM - HUD, leveling, magic HP, professor interface\" --push)",
-      "Bash(gh repo create th-power-spells --public --source=. --remote=origin --description \"58 spell modules for th-power magic system on FiveM\" --push)",
-      "Bash(gh repo rename dvr-power --repo DeVerino-DVR/th-power --yes)",
-      "Bash(gh repo rename dvr-power-spells --repo DeVerino-DVR/th-power-spells --yes)",
-      "Bash(git add README.md)",
-      "Bash(git commit -m \"Update README links to new repo names\")",
-      "Bash(git push)",
-      "Bash(git commit -m \"Update credits - DVR as lead developer\")",
-      "Bash(git commit -m \"Rename all th_ prefixes to dvr_\")"
+      "Bash(git commit -m \"Fix remaining th_ references, clean up AI files\")",
+      "Bash(git commit -m \"Fix remaining th_ references, remove .claude and internal docs\")"
     ]
   }
 }

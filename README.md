@@ -1,4 +1,4 @@
-# th-power-spells - Spell Modules for dvr_power
+# dvr-power-spells - Spell Modules for dvr_power
 
 58 spell modules for the [dvr_power](https://github.com/DeVerino-DVR/dvr-power) magic system on FiveM.
 
