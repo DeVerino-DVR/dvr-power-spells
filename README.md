@@ -15,7 +15,7 @@ If you use it, you must know what you are doing.
 ## Credits
 
 These scripts are distributed for free. Credits must remain attributed to:
-- **VLight** (original author)
+- **DVR** (lead developer, 90% of the codebase)
 - **@dxqson**
 - **@dolyyy**
 - **@lu_value**
@@ -155,4 +155,4 @@ Some modules have additional dependencies:
 
 ## License
 
-Free to use. Credits to VLight, @dxqson, @dolyyy, and @lu_value are **mandatory**.
+Free to use. Credits to DVR, @dxqson, @dolyyy, and @lu_value are **mandatory**.
