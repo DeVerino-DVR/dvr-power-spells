@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Cinzel Decorative Regular';
+    src: url('nui://th_power/html/fonts/CinzelDecorative-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cinzel Decorative Bold';
+    src: url('nui://th_power/html/fonts/CinzelDecorative-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cinzel Decorative Black';
+    src: url('nui://th_power/html/fonts/CinzelDecorative-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+:root {
+    --oublitix-bg-top: rgba(0, 0, 0, 1);
+    --oublitix-bg-bottom: rgba(0, 0, 0, 1);
+    --oublitix-text: rgba(220, 160, 90, 0.95);
+    --oublitix-shadow1: rgba(220, 160, 90, 0.7);
+    --oublitix-shadow2: rgba(120, 120, 120, 0.6);
+    --oublitix-shadow3: rgba(60, 60, 60, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    background: transparent;
+    font-family: 'Cinzel Decorative Regular', serif;
+    letter-spacing: 0.05em;
+}
+
+#oublitix-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, var(--oublitix-bg-top), var(--oublitix-bg-bottom));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#oublitix-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 1) 100%);
+    pointer-events: none;
+}
+
+#oublitix-overlay.visible {
+    opacity: 1;
+}
+
+#oublitix-text {
+    position: fixed;
+    left: 50%;
+    bottom: 12%;
+    transform: translateX(-50%);
+    color: var(--oublitix-text);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 0 16px rgba(0, 0, 0, 0.8),
+                 0 0 20px var(--oublitix-shadow1),
+                 0 0 28px var(--oublitix-shadow2),
+                 0 0 40px var(--oublitix-shadow3);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    z-index: 10000;
+    text-align: center;
+    white-space: pre-line;
+    line-height: 1.4;
+    padding: 12px 18px;
+}
+
+#oublitix-text.visible {
+    opacity: 1;
+}
+

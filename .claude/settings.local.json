@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find . -name \"fxmanifest.lua\" -exec sed -i \"s|''@ox_lib/init.lua'',|-- ''@ox_lib/init.lua'', -- REQUIRED: Install ox_lib \\(https://github.com/overextended/ox_lib\\)|g\" {} +)",
+      "Bash(find . -name \"fxmanifest.lua\" -exec sed -i \"s|''@oxmysql/lib/MySQL.lua'',|-- ''@oxmysql/lib/MySQL.lua'', -- REQUIRED: Install oxmysql \\(https://github.com/overextended/oxmysql\\)|g\" {} +)",
+      "Bash(find . -name \"fxmanifest.lua\" -exec sed -i \"s|''@es_extended/imports.lua'',|-- ''@es_extended/imports.lua'', -- REQUIRED: Install es_extended or your framework|g\" {} +)",
+      "Bash(find . -name \"*.lua\" -exec sed -i 's|https://files\\\\.fantasticrp\\\\.fr/d\\\\.php?f=[a-zA-Z0-9]*\\\\.mp3|YOUR_SOUND_URL_HERE|g' {} +)",
+      "Bash(find . -name \"*.lua\" -exec sed -i 's|https://files\\\\.fantasticrp\\\\.fr/[a-zA-Z0-9\\\\-]*\\\\.mp4|YOUR_VIDEO_URL_HERE|g' {} +)",
+      "Bash(find . -name \"*.lua\" -exec sed -i 's|https://files\\\\.fantasticrp\\\\.fr/d\\\\.php?f=[a-zA-Z0-9]*\\\\.mp4|YOUR_VIDEO_URL_HERE|g' {} +)",
+      "Bash(node --version)",
+      "Bash(gh auth status)",
+      "Bash(where gh)",
+      "Bash(cmd.exe /c \"where gh\")",
+      "Bash(git --version)",
+      "Bash(winget install --id GitHub.cli -e --accept-source-agreements --accept-package-agreements)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\")",
+      "Bash(git init)",
+      "Bash(git add -A)",
+      "Bash(git commit -m \"Initial release - th_power spell system for FiveM\")",
+      "Bash(git commit -m \"Initial release - 58 spell modules for th_power\")"
+    ]
+  }
+}
