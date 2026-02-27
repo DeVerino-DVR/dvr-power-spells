@@ -11,8 +11,8 @@
 |----------|-------------|
 | `lspell <playerId> <spellId>` | Donne un sort à un joueur |
 | `uspell <playerId> <spellId>` | Retire un sort à un joueur |
-| `ensure th_<spell>` | Redémarre un module de sort |
-| `stop th_<spell>` | Arrête un module de sort |
+| `ensure dvr_<spell>` | Redémarre un module de sort |
+| `stop dvr_<spell>` | Arrête un module de sort |
 | `refresh` | Recharge la liste des ressources |
 
 **Exemple:** `lspell 1 thunder` → Donne Thunder au joueur ID 1
@@ -235,7 +235,7 @@
 
 **Effets visuels:**
 - Props éclairs: `wizardsV_nib_wizards_lightning_*`
-- Fumée (`scr_adversary_gunsmith_weap_smoke`)
+- Fumée (`scr_adversary_gunsmidvr_weap_smoke`)
 - Shake caméra (0.6 intensité)
 - Effet de sang à l'écran
 

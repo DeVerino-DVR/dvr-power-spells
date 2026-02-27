@@ -16,8 +16,18 @@
       "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\")",
       "Bash(git init)",
       "Bash(git add -A)",
-      "Bash(git commit -m \"Initial release - th_power spell system for FiveM\")",
-      "Bash(git commit -m \"Initial release - 58 spell modules for th_power\")"
+      "Bash(git commit -m \"Initial release - dvr_power spell system for FiveM\")",
+      "Bash(git commit -m \"Initial release - 58 spell modules for dvr_power\")",
+      "Bash(# Final verification: check for any remaining private/sensitive data echo \"\"=== Checking for remaining fantasticrp URLs ===\"\" && grep -rl \"\"fantasticrp\"\" --include=\"\"*.lua\"\" \"\"c:/Users/dvr_/Desktop/[modules]/\"\" \"\"c:/Users/dvr_/Desktop/dvr_power/\"\" && echo \"\"\\(found\\)\"\" || echo \"\"\\(none - OK\\)\"\" echo -e \"\"\\\\n=== Checking for remaining lo_audio \\(uncommented\\) ===\"\" && grep -rn \"\"exports\\\\[''lo_audio''\\\\]\"\" --include=\"\"*.lua\"\" \"\"c:/Users/dvr_/Desktop/[modules]/\"\" \"\"c:/Users/dvr_/Desktop/dvr_power/\"\")",
+      "Bash(gh repo create th-power --public --source=. --remote=origin --description \"Spell system for FiveM - HUD, leveling, magic HP, professor interface\" --push)",
+      "Bash(gh repo create th-power-spells --public --source=. --remote=origin --description \"58 spell modules for th-power magic system on FiveM\" --push)",
+      "Bash(gh repo rename dvr-power --repo DeVerino-DVR/th-power --yes)",
+      "Bash(gh repo rename dvr-power-spells --repo DeVerino-DVR/th-power-spells --yes)",
+      "Bash(git add README.md)",
+      "Bash(git commit -m \"Update README links to new repo names\")",
+      "Bash(git push)",
+      "Bash(git commit -m \"Update credits - DVR as lead developer\")",
+      "Bash(git commit -m \"Rename all th_ prefixes to dvr_\")"
     ]
   }
 }
