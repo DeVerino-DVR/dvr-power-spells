@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(git commit -m \"Fix remaining th_ references, clean up AI files\")",
-      "Bash(git commit -m \"Fix remaining th_ references, remove .claude and internal docs\")"
-    ]
-  }
-}
