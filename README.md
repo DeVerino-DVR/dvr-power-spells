@@ -1,6 +1,6 @@
 # th-power-spells - Spell Modules for th_power
 
-58 spell modules for the [th_power](https://github.com/YOUR_USERNAME/th-power) magic system on FiveM.
+58 spell modules for the [th_power](https://github.com/DeVerino-DVR/dvr-power) magic system on FiveM.
 
 > Originally developed for the VLight RP event.
 
@@ -24,7 +24,7 @@ Please respect the work that went into this project.
 
 ## Requirements
 
-- **[th_power](https://github.com/YOUR_USERNAME/th-power)** - The core spell system (required)
+- **[th_power](https://github.com/DeVerino-DVR/dvr-power)** - The core spell system (required)
 - **[ox_lib](https://github.com/overextended/ox_lib)** - Shared utility library
 - **[oxmysql](https://github.com/overextended/oxmysql)** - MySQL adapter (some modules)
 - **[es_extended](https://github.com/esx-framework/esx_core)** - ESX Framework (some modules, adapt to your framework)
@@ -32,7 +32,7 @@ Please respect the work that went into this project.
 
 ## Installation
 
-1. Install [th_power](https://github.com/YOUR_USERNAME/th-power) first
+1. Install [th_power](https://github.com/DeVerino-DVR/dvr-power) first
 2. Copy the spell module folders you want into your server's `resources` directory
 3. In each module's `fxmanifest.lua`, uncomment the dependencies you have installed:
    ```lua
